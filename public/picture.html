@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/stylesheets/picture.css">
+  </head>
+  <body>
+
+    <header>
+        <nav>
+          <a href="#">主页</a>
+          <a href="#">设置</a>
+          <a href="#">我的</a>
+        </nav>
+
+
+
+    </header>
+
+    <nav class="mynav">
+      <a href="#">用户信息</a>
+      <a href="#">关注</a>
+      <a href="#">粉丝</a>
+      <a href="#">回复我的</a>
+      <a href="#">私信</a>
+      <a href="#">提到我</a>
+    </nav>
+
+
+
+    <div class="container">
+      <p>全部</p>
+
+      <div class="box">
+        <div class="main">
+          <input type="button" name="" value="创建相册"/>
+          <input type="text" name="" model="newName" value="" placeholder="请输入新的名称" class="hidden">
+          <input type="submit" name="" value="确认" class="hidden">
+          <br>
+
+          <a href="javascript:;" class="file">选择图片
+            <input id="selectfile" type="file" name="photo" value="上传图片"  onchange="handleFiles(this.files)"/>
+          </a>
+
+          <input type="submit" name="" value="上传">
+          <hr>
+          <form class="" action="/picture/up1" method="post" enctype="multipart/form-data">
+            <input id="selectfile" type="file" name="photo" value="上传图片" multiple onchange="handleFiles(this.files)"/>
+            <input type="submit" name="" value="上传">
+
+          </form>
+
+           <form class="" action="/picture/up2" method="post" enctype="multipart/form-data">
+            <input id="selectfile" type="file" name="photos" value="上传图片" multiple onchange="handleFiles(this.files)"/>
+            <input type="submit" name="" value="上传">
+
+          </form>
+
+          <form class="" action="/picture/up3" method="post" enctype="multipart/form-data">
+           <input id="selectfile" type="file" name="field1" value="上传图片" onchange="handleFiles(this.files)"/>
+           <input id="selectfile" type="file" name="field2" value="上传图片" multiple onchange="handleFiles(this.files)"/>
+
+           <input type="submit" name="" value="上传">
+
+         </form>
+
+
+
+          <div class="images">
+            <!-- 这里用来显示读取结果 -->
+
+            <ul>
+              <% list.forEach(function(fd){%>
+
+                <li><img src= "/img/<%=filename%>" ></li>
+              <% })%>
+
+            </ul>
+
+          </div>
+
+          <div class="pagination">
+
+              <ul >
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">&raquo;</a></li>
+            </ul>
+
+          </div>
+
+
+        </div>
+        <div class="left">
+          <ul>
+            <li class="photo">默认相册</li>
+            <li class="photo">我的相册</li>
+            <li class="photo">朋友相册</li>
+            <li class="photo">旅游</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+
+
+  </div>
+
+
+
+    <footer>
+       我是有底线的
+
+    </footer>
+
+    <script type="text/javascript" src="../js/picture.js">
+
+    </script>
+
+
+    
+  </body>
+</html>

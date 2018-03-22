@@ -1,0 +1,215 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #f4f4f4; }
+
+header {
+  width: auto;
+  min-height: 50px; }
+  header > nav {
+    margin-top: 10px; }
+    header > nav a {
+      padding: 10px;
+      text-decoration: none; }
+      header > nav a:link, header > nav a:visited, header > nav a:active {
+        color: #666; }
+      header > nav a:hover {
+        font-size: 13pt;
+        color: #333; }
+
+.mynav {
+  margin: 10px; }
+  .mynav a {
+    padding: 10px;
+    text-decoration: none; }
+    .mynav a:link, .mynav a:visited, .mynav a:active {
+      color: #e66; }
+    .mynav a:hover {
+      font-size: 12pt;
+      color: #333; }
+
+.container {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  padding: 10px 0;
+  margin: 0;
+  position: absolute; }
+  .container::after {
+    content: "";
+    display: block;
+    clear: both; }
+  /*.container > p {
+    padding-left: 20px;
+    line-height: 20px;
+    font-size: 20px; }
+    .container > p >span{
+      margin:auto 20px;
+    }*/
+  .container a{
+    margin-left:10px;
+
+    padding: 10px;
+    text-decoration: none;
+  }
+  .container a:link, .container a:visited, .container a:active {
+    color: #e66; }
+  .container a:hover {
+    font-size: 12pt;
+    color: #333; }
+  .container .box {
+    margin: 5px 0 0 0;
+    background-color: #e6e6e6;
+    min-width: 300px;
+    min-height: 600px;
+    position: relative; }
+    .container .box .main {
+      padding-top: 10px;
+      float: left;
+      border-radius: 5px;
+      background-color: #fff;
+      width: 72%;
+      max-height: 800px;
+      min-height: 500px;
+      min-width: 200px;
+      position: absolute;
+      right: 10px;
+      top: 20px; }
+      .container .box .main > form .hidden {
+        display: none; }
+      .container .box .main > form > input {
+        height: 30px;
+        border-radius: 3px;
+        margin: 10px 15px; }
+        .contain .box .main > form >input[type="text"]{
+          height: 30px;
+
+        }
+        .container .box .main > form .submit{
+          border: 1px solid #0066ff;
+          background-color: #0044bb;
+          height: 30px;
+          color: #ffffff;
+          width: 100px; }
+          .container .box .main > form .submit:hover, .container .box .main form .submit:link, .container .box .main form .submit:visited, .container .box .main form .submit:active, .container .box .main form .submit:hover{
+            background-color: #1166dd; }
+      .container .box .main .formimg >a {
+        margin-top: 10px;
+        margin-left: 15px;
+        margin-right: 20px;
+        border-radius: 3px;
+        position: relative;
+        background: #0044bb;
+        border: 1px solid #0066ff;
+        border-radius: 4px;
+        padding: 6.5px 12px;
+        overflow: hidden;
+        color: #ffffff;
+        text-decoration: none;
+        text-indent: 0;
+        height: 20px;
+        font-size: 10pt;
+        line-height: 20px; }
+        .container .box .main .formimg .afile input {
+          height:20px;
+          position: absolute;
+          right: 0;
+          top: 0;
+          opacity: 0; }
+        .container .box .main .formimg .afile:hover {
+          background: #1166dd;
+          text-decoration: none; }
+      .container .box .main .images {
+        display: flex;
+        width: 90%;
+        height: 100%;
+        min-height: 300px;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        padding: 20px; }
+        .container .box .main .images > img {
+          margin: 20px; }
+      .container .box .main .pagination {
+        text-align: center; }
+        .container .box .main .pagination ul li {
+          display: inline;
+          list-style: none;
+          padding: 10px; }
+          .container .box .main .pagination ul li a {
+            text-decoration: none;
+            color: #999999; }
+            .container .box .main .pagination ul li a:nth-child(2) {
+              color: #333333; }
+            .container .box .main .pagination ul li a:hover {
+              color: #1166dd; }
+    .container .box .left {
+      padding-top: 10px;
+      border-radius: 5px;
+      float: left;
+      position: relative;
+      background-color: #fff;
+      min-height: 300px;
+      min-width: 100px;
+      width: 24%;
+      left: 10px;
+      top: 20px; }
+      .container .box .left a{
+        text-decoration: none;
+        color: #aaaaaa;
+      }
+
+      .container .box .left button{
+        position:absolute;
+        right:20px;
+      }
+
+      .del{
+        display:none;
+      }
+
+      .container .box .left a:hover,.container .box .left a:active{
+        color:#1166dd;
+      }
+      /*.container .box .left{
+        width: 75%;
+        margin: 0 auto;
+        position: absolute;
+        margin-left: -15px; }*/
+        /*.container .box .left  {
+          margin: 10px auto;
+          list-style: none;
+          border-style: solid;
+          border-width: 1px 1px 1px 1px;
+          border-radius: 3px;
+          height: 37px;
+          background-color: #999999;
+          font-weight: bold;
+          line-height: 37px;
+          font-size: 15px;
+          color: #ffffff;
+          text-decoration: none;
+          text-align: center; }*/
+
+
+
+          /*.container a{
+            margin-left:10px;
+
+            padding: 10px;
+            text-decoration: none;
+          }
+          .container a:link, .container a:visited, .container a:active {
+            color: #e66; }
+          .container a:hover {
+            font-size: 12pt;
+            color: #333; }*/
+
+
+          /*.container .box .left a:hover, .container .box .left a:link, .container .box .left a:visited, .container .box .left a:active {
+            background-color: #666666; }*/
+
+footer {
+  content: "";
+  clear: both;
+  margin: 0 auto;
+  text-align: center; }

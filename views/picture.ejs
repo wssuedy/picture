@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/stylesheets/picture.css">
+    <script type="text/javascript">
+
+
+    </script>
+  </head>
+  <body>
+
+    <header>
+        <nav>
+          <a href="#">主页</a>
+          <a href="#">设置</a>
+          <a href="#">我的</a>
+        </nav>
+
+    </header>
+
+    <nav class="mynav">
+      <a href="#">用户信息</a>
+      <a href="#">关注</a>
+      <a href="#">粉丝</a>
+      <a href="#">回复我的</a>
+      <a href="#">私信</a>
+      <a href="#">提到我</a>
+    </nav>
+
+    <div class="container">
+      <a href="/picture">全部</a>
+      <!-- <a href="/picture/travel">旅游</a>
+      <a href="/picture/people">人物</a>
+      <a href="/picture/food">美食</a> -->
+
+      <div class="box">
+        <div class="main">
+          <form action="/picture/create" method="post" >
+            <input type="text" name="newname" value="" placeholder="请输入新的名称">
+            <input type="submit" name="" value="确认" class="submit">
+          </form>
+
+           <form class="formimg" action="/picture/up2" method="post" enctype="multipart/form-data">
+             <a href="#" class="afile">选择图片
+               <input class="selectfiles" type="file" name="photos" value="上传" multiple />
+             </a>
+            <input class = "submit" type="submit" name="" value="上传">
+          </form>
+            <hr>
+
+          <div class="images">
+            <!-- 这里用来显示读取结果 -->
+              <% list.forEach(function(fd){%>
+                  <img width="200" height="200" src= "/picture/img/<%= fd.filename%>" >
+
+              <% })%>
+
+          </div>
+
+          <div class="pagination">
+              <ul >
+                <li><a href="/picture?page=pre">&laquo;</a></li>
+                <!-- <li><a href="/picture/page?num=1">1</a></li> -->
+                <%if(num <= 5){%>
+                  <% for(var i =1; i<=num;i++){%>
+                    <li><a href="/picture/page?num=<%=i%>" > <%=i%> </a></li>
+
+                  <%}%>
+                <%}else{%>
+                  <% for(var i =1; i<=5;i++){%>
+                    <li><a href="/picture/page?num=<%=i%>"><%=i%></a></li>
+
+                  <%}%>
+                <%}%>
+
+
+
+                <li><a href="/picture?page=next">&raquo;</a></li>
+            </ul>
+          </div>
+<!-- 左侧相册栏 -->
+        </div>
+        <div class="left">
+          <!-- <ul> -->
+            <a href="/picture?name=default"> 默认相册 </a>
+            <button type="button" name="button">编辑相册</button>
+            <!-- <a href="/picture?name=my&&id=1"> 我的相册 </a>
+            <a href="/picture?name=friend&&id=2">朋友相册</a>
+            <a href="/picture?name=travel&&id=3">旅游</a> -->
+            <div class="xclist">
+              <hr>
+              <% xclist.forEach(function(xc){%>
+                    <a href="/picture?name=<%=xc %>" > <%=xc %>  </a>
+                    <a href="/picture/del?name=<%=xc %>" class="del" >-</a>
+                    <hr>
+                    <%})%>
+            </div>
+          <!-- </ul> -->
+
+        </div>
+
+      </div>
+
+
+  </div>
+
+    <footer>
+       我是有底线的
+
+    </footer>
+
+    <script type="text/javascript" src="/javascripts/pic.js">
+
+    </script>
+
+
+    <!-- <script type="text/javascript">
+    const input = document.querySelector("#test");
+    input.onchange = function(event){
+      const formdata = new FormData();
+      formdata.append("photo",event.target.files[0]);
+      upload(formdata);
+
+    }
+
+    function upload(formdata){
+      const xhr2 = new XMLHttpRequest();
+      xhr2.open("POST","/picture/xhrup");
+      xhr2.onreadystatechange = function(){
+        if(xhr2.status == 200 && xhr2.readyState == 4){
+          console.log(xhr2.response);
+        }
+      }
+      xhr2.send(formdata);
+    }
+
+
+
+    </script> -->
+
+
+
+  </body>
+</html>

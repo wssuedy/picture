@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <input type="file" multiple>
+
+
+
+      <a href="/ajax?name=leo">leo</a>
+
+      <a href="/ajax?name=wss">wss</a>
+
+      <ul>
+
+      </ul>
+
+  </body>
+
+  <script type="text/javascript">
+    const ul = document.querySelector("ul");
+    const alist = document.querySelectorAll("a");
+    alist.forEach(a=>a.addEventListener("click",function(event){
+      event.preventDefault();//中止之前的
+      const href = event.target.getAttribute("href");//返回链接
+      var xhr = new XMLHttpRequest();//创建ajax对象，新开一个线程
+      xhr.open("GET",href);
+      xhr.onreadystatechange = function(){
+        console.log(xhr.response);
+        if(xhr.status == 200&& xhr.readyState == 4){
+          const li = document.createElement("li");
+          li.innerText = xhr.response;
+          ul.appendChild(li);
+        }
+
+      };
+      xhr.send();//服务器端
+    }))
+
+    const input = document.querySelector("input");
+
+    input.onchange = function(event){
+      const formdata = new FormData();
+      for(let file of event.target.files){
+        formdata.append("photos",file);
+      }
+      upload(formdata);
+
+    }
+
+    function upload(formdata){
+      const xhr2 = new XMLHttpRequest();
+      xhr2.open("POST","/picture/up2");
+      xhr2.onreadystatechange = function(){
+        if(xhr2.status == 200 && xhr2.readyState == 4){
+          console.log(xhr2.response);
+        }
+      }
+      xhr2.send(formdata);
+    }
+
+
+
+
+
+  </script>
+</html>

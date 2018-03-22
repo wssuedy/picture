@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/stylesheets/user.css">
+
+
+  </head>
+  <body>
+
+    <div class="main">
+
+      <% if(user){%>
+      <div class = "logout">
+
+       <a href="/users/logout">退出</a>
+       <span><%=user.loginname%>已登陆</span>
+       <a href="/users/logout">设置</a>
+     </div>
+
+     <%}else{%>
+       <div class = "default">
+        <span>登录</span>
+        <span>注册</span>
+        <span>设置</span>
+      </div>
+
+       <div class="login">
+         <h3>登录</h3>
+
+         <form class="" action="/users/login" method="post">
+           <input type="text" name="loginname" placeholder="请输入用户名" value="">
+           <input type="password" name="password" placeholder="请输入密码" value="">
+
+          <input class="check" type="text" name="vnum" value="" placeholder="请输入正确的结果">
+          <span><%=firstnum%></span>   + <span><%=secondnum%></span>
+           <input class = "subbutton" type="submit" name="" value="登录">
+
+         </form>
+            <p class="regdom" >忘记密码</p>
+       </div>
+
+     <%}%>
+
+     <div class="reg">
+
+    <h3>注册</h3>
+    <form class="" action="/users/reg" method="post">
+      <input type="text" name="loginname" placeholder="请输入用户名" value="">
+      <input type="password" name="password" placeholder="请输入密码" value="">
+      <input type="password" name="confirm" placeholder="请再次输入密码" value="">
+
+      <input class="check" type="text" name="vimg" value="" placeholder="请输入图片中数字">
+      <img src="/users/vimg" alt="">
+      <input class = "subbutton" type="submit" name="" value="注册">
+    </form>
+  </div>
+    <!-- <p class = "logdom">登录</p> -->
+
+    <div class="config">
+     <h3>设置密码</h3>
+     <form class="" action="/users/update_pwd" method="post">
+       <input type="text" name="loginname" placeholder="请输入用户名" value="">
+       <input type="password" name="password" placeholder="请输入原有密码" value="">
+       <input type="password" name="new_password" placeholder="请输入新密码" value="">
+
+       <input class="check" type="text" name="vimg" value="" placeholder="请输入图片中数字">
+       <img src="/users/vimg" alt="">
+       <input class = "subbutton" type="submit" name="" value="注册">
+     </form>
+   </div>
+
+   <div class="messages">
+
+    <%if(messages){%>
+      <%messages.forEach(function(msg){%>
+        <%=msg%>
+        <hr>
+      <% })%>
+
+    <%}%>
+
+
+   </div>
+
+   <div class="message">
+     <form class="" action="/users/message" method="post">
+       <input type="textarea" name="message" value="">
+       <input type="submit" name="" value="提交">
+     </form>
+   </div>
+
+
+    <script type="text/javascript">
+      const regdom = document.querySelector(".main .default >span:nth-child(2)");
+      const reg = document.querySelector(".main .reg");
+      const logdom = document.querySelector(".main .default >span:nth-child(1)");
+      const log = document.querySelector(".main .login");
+
+      const configdom = document.querySelector(".main .default >span:nth-child(3)");
+      const config = document.querySelector(".main .config");
+
+
+      regdom.addEventListener("click",function(event){
+        reg.style.display = "block";
+        log.style.display = 'none';
+        config.style.display = 'none';
+      })
+
+      logdom.addEventListener("click",function(event){
+        reg.style.display = 'none';
+        log.style.display = "block";
+        config.style.display = 'none';
+      })
+
+      configdom.addEventListener("click",function(event){
+        reg.style.display = 'none';
+        log.style.display = 'none';
+        config.style.display = "block";
+      })
+
+
+    </script>
+
+  </body>
+</html>
